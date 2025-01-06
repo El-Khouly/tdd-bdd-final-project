@@ -134,7 +134,7 @@ def list_products():
 
 
 @app.route("/products/<int:product_id>", methods=["GET"])
-def get_products(product_id):
+def read_products(product_id):
     """
     Retrieve a single Product
 
