@@ -178,13 +178,10 @@ class Product(db.Model):
     @classmethod
     def find(cls, product_id: int):
         """Finds a Product by it's ID
-
         :param product_id: the id of the Product to find
         :type product_id: int
-
         :return: an instance with the product_id, or None if not found
         :rtype: Product
-
         """
         logger.info("Processing lookup for id %s ...", product_id)
         return cls.query.get(product_id)
@@ -192,13 +189,10 @@ class Product(db.Model):
     @classmethod
     def find_by_name(cls, name: str) -> list:
         """Returns all Products with the given name
-
         :param name: the name of the Products you want to match
         :type name: str
-
         :return: a collection of Products with that name
         :rtype: list
-
         """
         logger.info("Processing name query for %s ...", name)
         return cls.query.filter(cls.name == name)
@@ -206,13 +200,10 @@ class Product(db.Model):
     @classmethod
     def find_by_price(cls, price: Decimal) -> list:
         """Returns all Products with the given price
-
         :param price: the price to search for
         :type name: float
-
         :return: a collection of Products with that price
         :rtype: list
-
         """
         logger.info("Processing price query for %s ...", price)
         price_value = price
@@ -223,13 +214,10 @@ class Product(db.Model):
     @classmethod
     def find_by_availability(cls, available: bool = True) -> list:
         """Returns all Products by their availability
-
         :param available: True for products that are available
         :type available: str
-
         :return: a collection of Products that are available
         :rtype: list
-
         """
         logger.info("Processing available query for %s ...", available)
         return cls.query.filter(cls.available == available)
